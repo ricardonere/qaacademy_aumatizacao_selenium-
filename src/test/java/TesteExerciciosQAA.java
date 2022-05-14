@@ -1,10 +1,7 @@
-import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
-import java.time.Duration;
 
 public class TesteExerciciosQAA {
     WebDriver driver = new ChromeDriver();
@@ -15,7 +12,7 @@ public class TesteExerciciosQAA {
         //Vou maximizar a tela
         driver.manage().window().maximize();
         //Vou navegar para a a pagina da lojinha web
-        driver.get("http://demo.automationtesting.in/Register.html");
+        driver.get("file:///C:/Users/Lenovo/Desktop/Register.html");
 
         driver.findElement(By.xpath("//body/section[@id='section']/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/input[1]")).sendKeys("Ricardo");
         driver.findElement(By.xpath("//body/section[@id='section']/div[1]/div[1]/div[2]/form[1]/div[1]/div[2]/input[1]")).sendKeys("Nere");
@@ -36,16 +33,35 @@ public class TesteExerciciosQAA {
         driver.findElement(By.xpath("//input[@id='secondpassword']")).sendKeys("admin2022");
         driver.findElement(By.xpath("//button[@id='submitbtn']")).click();
     }
+
     @Test
-    public void interagirCampoSwitchTo(){
-        //Vou maximizar a tela
+    public void interagirCampoSwitchTo() {
         driver.manage().window().maximize();
-        //Vou navegar para a a pagina da lojinha web
-        driver.get("http://demo.automationtesting.in/Register.html");
+        driver.get("file:///C:/Users/Lenovo/Desktop/Register.html");
         driver.findElement(By.xpath("//header/nav[1]/div[1]/div[2]/ul[1]/li[4]/i[1]")).click();
         driver.findElement(By.xpath("//a[contains(text(),'Alerts')]")).click();
-        //driver.findElement(By.tagName("//button[contains(text(),'alert box:')]")).click();
+        driver.findElement(By.xpath("//body/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]")).click();
+        driver.findElement(By.xpath("//button[contains(text(),'alert box:')]")).click();
+    }
+
+    @Test
+    public void interagirCampoSwichToWindow() {
+        driver.manage().window().maximize();
+        driver.get("file:///C:/Users/Lenovo/Desktop/Register.html");
+        driver.findElement(By.xpath("//header/nav[1]/div[1]/div[2]/ul[1]/li[4]/i[1]")).click();
+        driver.findElement(By.xpath("//*[@id=\"header\"]/nav/div/div[2]/ul/li[4]/ul/li[2]/a")).click();
+        driver.findElement(By.xpath("//header/nav[1]/div[1]/div[2]/ul[1]/li[4]/ul[1]/li[2]/a[1]")).click();
+        driver.findElement(By.xpath("//body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/button[1]")).click();
+    }//Test
+    @Test
+    public void interagirCampoSwichToWindowsOpen(){
+        driver.manage().window().maximize();
+        driver.get("file:///C:/Users/Lenovo/Desktop/Register.html");
+        driver.findElement(By.xpath("//header/nav[1]/div[1]/div[2]/ul[1]/li[4]/i[1]")).click();
+        driver.findElement(By.xpath("//*[@id=\"header\"]/nav/div/div[2]/ul/li[4]/ul/li[2]/a")).click();
+        driver.findElement(By.xpath("//a[contains(text(),'Open New Seperate Windows')]")).click();
+        driver.findElement(By.xpath("//body/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/button[1]")).click();
+
 
     }
 }
-
